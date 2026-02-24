@@ -5,16 +5,15 @@ This package provides functionality to visualize set overlaps using:
 - Venn diagrams for 2-7 sets
 - UpSet plots for 7+ sets
 
-Main functions:
-- draw_venn: Create Venn diagrams for 2-7 sets
-- draw_upset: Create UpSet plots for 7+ sets
-- auto_draw: Automatically choose the appropriate visualization
+Main classes:
+- VennPlot: Create Venn diagrams for 2-7 sets
+- PlotStyle: Configure plot styles
+- BasePlot: Base class for all plots
 """
 
-from .venn import draw_venn
-from .upset import draw_upset
-from .utils import auto_draw
+from .venn import VennPlot
+from .core import PlotStyle, BasePlot
 
 __version__ = '0.1.0'
 __author__ = 'Dot4diw'
-__all__ = ['draw_venn', 'draw_upset', 'auto_draw']
+__all__ = ['VennPlot', 'PlotStyle', 'BasePlot']

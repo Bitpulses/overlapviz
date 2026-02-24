@@ -1,0 +1,16 @@
+set_names,n_sets,size,elements
+Set1 & Set2 & Set3 & Set4,4,1,['g4']
+Set1 & Set2 & Set3,3,2,"['g3', 'g4']"
+Set1 & Set3 & Set4,3,2,"['g4', 'g5']"
+Set1 & Set2 & Set4,3,1,['g4']
+Set2 & Set3 & Set4,3,1,['g4']
+Set1 & Set2,2,3,"['g2', 'g3', 'g4']"
+Set1 & Set3,2,3,"['g3', 'g4', 'g5']"
+Set2 & Set3,2,3,"['g3', 'g4', 'g7']"
+Set3 & Set4,2,3,"['g4', 'g5', 'g8']"
+Set1 & Set4,2,2,"['g4', 'g5']"
+Set2 & Set4,2,2,"['g4', 'g6']"
+Set1,1,1,['g1']
+Set2,1,0,[]
+Set3,1,0,[]
+Set4,1,1,['g9']

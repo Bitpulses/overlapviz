@@ -1,0 +1,13 @@
+include README.md
+include pyproject.toml
+include setup.py
+include LICENSE
+recursive-include overlapviz *.py
+recursive-include overlapviz *.pkl
+recursive-include overlapviz *.json
+recursive-include overlapviz *.md
+recursive-exclude test *
+recursive-exclude docs *
+recursive-exclude figs *
+recursive-exclude datasets *
+global-exclude *.pyc __pycache__ *.pyo *.pyd
