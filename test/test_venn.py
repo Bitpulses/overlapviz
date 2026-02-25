@@ -37,6 +37,7 @@ calc = OverlapCalculator(data)
 plot_data = calc.get_plot_data()
 
 venn = VennPlot(style=PlotStyle.paper())
+
 #venn.set_label_formatter(lambda x: f"{x}\n({x/(plot_data['size'].sum())*100:.1f}%)")  # Uncomment to show percentage
 
 venn.draw(plot_data, show_region_labels=False, label_formatter='all',shape_key="shape403")  # Pass DataFrame directly
