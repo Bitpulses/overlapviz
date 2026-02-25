@@ -12,8 +12,10 @@ Main classes:
 """
 
 from .venn import VennPlot
+from .euler import EulerPlot
+from .upset import UpsetPlot
 from .core import PlotStyle, BasePlot
 
 __version__ = '0.1.0'
 __author__ = 'Dot4diw'
-__all__ = ['VennPlot', 'PlotStyle', 'BasePlot']
+__all__ = ['VennPlot', 'EulerPlot','UpsetPlot','PlotStyle', 'BasePlot']
