@@ -8,7 +8,6 @@ from typing import Optional, Tuple
 
 import matplotlib.pyplot as plt
 import pandas as pd
-
 from .plotstyle import PlotStyle
 
 
