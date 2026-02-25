@@ -18,9 +18,8 @@ This document summarizes all the files added to make overlapviz a proper Python 
    - Excludes test, docs, and other non-essential files
    - Includes data files like .pkl, .json
 
-4. **`LICENSE`** - MIT License file
-   - Open source license for the package
-   - Allows free use, modification, and distribution
+4. **`LICENSE`**
+   - GPL-3 License file
 
 5. **`.gitignore`** - Git ignore patterns
    - Python bytecode files
