@@ -13,7 +13,8 @@ This installs the package in editable mode, so changes to the source code are im
 
 ```bash
 # Navigate to the project root directory
-cd d:\MyCode\Python\Overlapviz\overlapviz
+git clone https://github.com/Dot4diw/overlapviz.git
+cd overlapviz
 
 # Install in development mode
 pip install -e .
