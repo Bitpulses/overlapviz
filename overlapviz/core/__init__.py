@@ -1,5 +1,5 @@
 """
-core 模块：提供绘图基础类和配置
+core module: Provides drawing base classes and configurations.
 """
 
 from .plotstyle import PlotStyle
