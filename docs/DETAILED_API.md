@@ -1,6 +1,6 @@
 # overlapviz Detailed API Documentation
 
-## overlapviz.venn.venn.VennPlot
+## overlapviz.venn.VennPlot
 
 ### Class Definition
 ```python
