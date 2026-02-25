@@ -22,15 +22,7 @@ This document summarizes all the files added to make overlapviz a proper Python 
    - Open source license for the package
    - Allows free use, modification, and distribution
 
-### Development Support Files
-
-5. **`requirements.txt`** - Runtime dependencies (removed, now in pyproject.toml)
-   - Dependencies are now defined in pyproject.toml
-
-6. **`requirements-dev.txt`** - Development dependencies (removed, now in pyproject.toml)
-   - Optional dependencies are now in pyproject.toml [optional-dependencies]
-
-7. **`.gitignore`** - Git ignore patterns
+5. **`.gitignore`** - Git ignore patterns
    - Python bytecode files
    - Build artifacts
    - IDE files
@@ -39,21 +31,21 @@ This document summarizes all the files added to make overlapviz a proper Python 
 
 ### Documentation Files
 
-8. **`INSTALL.md`** - Detailed installation guide
+1. **`INSTALL.md`** - Detailed installation guide
    - Multiple installation methods
    - Troubleshooting tips
    - Development workflow
 
-9. **`README.md`** - Updated with package structure and usage examples
+2. **`README.md`** - Updated with package structure and usage examples
 
 ### Test and Example Files
 
-10. **`test_install.py`** - Installation verification script
+1. **`test_install.py`** - Installation verification script
     - Tests basic imports
     - Tests object creation
     - Verifies package functionality
 
-11. **`example_usage.py`** - Usage examples
+2. **`example_usage.py`** - Usage examples
     - Basic Venn diagram creation
     - Overlap analysis with OverlapCalculator
     - Custom styling examples
@@ -107,33 +99,6 @@ print(overlapviz.__version__)  # Should print 0.1.0
 from overlapviz import VennPlot, PlotStyle
 venn = VennPlot()
 style = PlotStyle()
-```
-
-## Package Structure After Installation
-
-```
-site-packages/
-└── overlapviz/
-    ├── __init__.py
-    ├── __pycache__/
-    ├── core/
-    │   ├── __init__.py
-    │   ├── baseplot.py
-    │   ├── calculator.py
-    │   ├── calculator_test.py
-    │   └── plotstyle.py
-    ├── euler/
-    │   ├── __init__.py
-    │   └── euler.py
-    ├── upset/
-    │   ├── __init__.py
-    │   └── upset.py
-    ├── utils/
-    │   └── __init__.py
-    └── venn/
-        ├── __init__.py
-        ├── geometric_data_v3.pkl
-        └── venn.py
 ```
 
 ## Key Features Enabled
