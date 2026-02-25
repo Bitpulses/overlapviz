@@ -297,6 +297,3 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - s
 
 If you encounter any issues or have suggestions for improvements, please open an issue on GitHub.
 
-## 📞 Contact
-
-For questions or support, please open an issue in the repository.
