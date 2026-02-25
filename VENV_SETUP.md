@@ -5,7 +5,7 @@ This document explains how to set up and use a virtual environment for the overl
 ## Creating the Virtual Environment
 
 ```bash
-# Create a virtual environment with Python 3.13.2
+# Create a virtual environment with Python 3.12 or 13/14
 uv venv --python 3.13.2 .venv
 ```
 
