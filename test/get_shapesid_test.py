@@ -4,10 +4,9 @@ Get all available shape IDs for specified number of sets
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+#sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from overlapviz.venn import VennPlot
-
 
 def test_get_shapes():
     """Test getting shapes for different number of sets"""
