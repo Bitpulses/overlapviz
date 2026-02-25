@@ -12,6 +12,7 @@ overlapviz is designed to make set visualization easy and customizable. It provi
 - **Flexible styling** options with predefined themes
 - **Easy data integration** with pandas DataFrames and CSV files
 
+
 ## Quick Start
 
 ```python
