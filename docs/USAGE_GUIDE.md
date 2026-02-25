@@ -14,6 +14,9 @@ This guide provides practical examples and usage patterns for the overlapviz pac
 The package can be installed in development mode:
 
 ```bash
+git clone https://github.com/Dot4diw/overlapviz
+cd overlapviz
+
 pip install -e .
 ```
 
