@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A Python toolkit for professional set visualization, transforming complex data overlaps into intuitive Venn and UpSet plots."
 readme = "README.md"
 authors = [
-    {name = "Dot4diw"}
+    {name = "Bitpulses"}
 ]
 license = "GPL-3.0-or-later"
 classifiers = [
@@ -45,10 +45,10 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Dot4diw/overlapviz"
-Repository = "https://github.com/Dot4diw/overlapviz"
-Documentation = "https://github.com/Dot4diw/overlapviz#readme"
-"Bug Tracker" = "https://github.com/Dot4diw/overlapviz/issues"
+Homepage = "https://github.com/Bitpulses/overlapviz"
+Repository = "https://github.com/Bitpulses/overlapviz"
+Documentation = "https://github.com/Bitpulses/overlapviz#readme"
+"Bug Tracker" = "https://github.com/Bitpulses/overlapviz/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
