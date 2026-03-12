@@ -285,12 +285,10 @@ pip install -e .[dev]
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
 
-**Note**: This is a copyleft license that requires any derivative works to also be distributed under the same license terms.
 
 ## 🙏 Acknowledgments
 
 - Built with [matplotlib](https://matplotlib.org/) for visualization
-- Uses [pandas](https://pandas.pydata.org/) for data manipulation
 - Inspired by the need for professional set visualization tools
 - This project was inspired by the ggVennDiagram package (https://github.com/gaospecial/ggVennDiagram)
 
