@@ -175,6 +175,7 @@ class VennPlot(BasePlot):
 
         return sorted(shapes)  # Return sorted list of available shape IDs
 
+    # Customization methods for region colors
     def set_custom_colors(self, colors: Dict[str, str]):
         """
         Args:
