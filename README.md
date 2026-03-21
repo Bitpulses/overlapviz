@@ -1,5 +1,6 @@
 # overlapviz - Professional Set Visualization Toolkit （Under development!）
-<img src="figs/logo.png" align="right" height="200"/>
+
+<img src="figs/logo2.jpg" align="right" height="100",width="150"/>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org/downloads/)
@@ -15,7 +16,6 @@ A Python toolkit for professional set visualization, transforming complex data o
 ![](./figs/5set_venn.py.png)
 ![](./figs/6set_test_venn_output.png)
 ![](./figs/7set_test_venn_output.png)
-
 
 ## 🚀 Features
 
@@ -285,7 +285,6 @@ pip install -e .[dev]
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
 
-
 ## 🙏 Acknowledgments
 
 - Built with [matplotlib](https://matplotlib.org/) for visualization
@@ -295,4 +294,3 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - s
 ## 🐛 Issues
 
 If you encounter any issues or have suggestions for improvements, please open an issue on GitHub.
-

@@ -4,7 +4,7 @@ Base class: Provides common plotting functionality, inherited by subclasses to i
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -29,10 +29,14 @@ class BasePlot(ABC):
         self.fig: Optional[plt.Figure] = None
         self.ax: Optional[plt.Axes] = None
     
-    def create_figure(self):
-        """Create figure and axes"""
+    def create_figure(self, figsize: Optional[Tuple[float, float]] = None):
+        """Create figure and axes
+        
+        Args:
+            figsize: Figure size (width, height) in inches. If None, uses style.figsize
+        """
         self.fig, self.ax = plt.subplots(
-            figsize=self.style.figsize,
+            figsize=figsize if figsize is not None else self.style.figsize,
             dpi=self.style.dpi,
             facecolor=self.style.facecolor,
             edgecolor=self.style.edgecolor

@@ -3,7 +3,7 @@ import os
 import sys
 
 # Add parent directory to path
-# sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from overlapviz.core.calculator import OverlapCalculator
 from overlapviz.venn import VennPlot
@@ -32,15 +32,27 @@ data = {
     # 'G': set_g,
 }
 
-
 calc = OverlapCalculator(data)
 plot_data = calc.get_plot_data()
 
 venn = VennPlot(style=PlotStyle.paper())
 
+print(venn.get_shapes(n_sets=4))
 #venn.set_label_formatter(lambda x: f"{x}\n({x/(plot_data['size'].sum())*100:.1f}%)")  # Uncomment to show percentage
 
-venn.draw(plot_data, show_region_labels=False, label_formatter='all',shape_key="shape403")  # Pass DataFrame directly
+venn.draw(
+    plot_data, 
+    show_region_labels=False, 
+    show_set_labels=False,
+    label_formatter='all',
+    show_regions_border=True,
+    figsize=(6, 6),
+    show_set_border=False,
+    #custom_colors={'Set1': '#FF6B6B', 'Set2': '#4ECDC4', 'Set3': '#45B7D1', 'Set4': '#96CEB4'},
+    palette='plasma',
+    #custom_set_labels=['A','B','C','D'],
+    #shape_key="shape404"
+    )  # Pass DataFrame directly
 
 output_path = os.path.join(os.path.dirname(__file__), 'test_output', '4set_test_venn_output3.png')
 os.makedirs(os.path.dirname(output_path), exist_ok=True)

@@ -5,7 +5,7 @@ Venn diagram plotting class
 
 import pickle
 from pathlib import Path
-from typing import Dict, Optional, Callable, Union, List
+from typing import Dict, Optional, Callable, Union, List, Tuple
 
 import pandas as pd
 
@@ -15,6 +15,7 @@ from matplotlib.colors import to_rgba
 
 from ..core.baseplot import BasePlot
 from ..core.plotstyle import PlotStyle
+from ..core.calculator import OverlapCalculator
 
 
 
@@ -40,6 +41,7 @@ class VennPlot(BasePlot):
         # Custom options
         self.custom_colors: Optional[Dict[str, str]] = None
         self.label_formatter: Optional[Callable] = None
+        self.custom_set_labels: Optional[List[str]] = None
 
     def _load_geometric_data(self, shape_key: str = 'shape403'):
         """
@@ -61,7 +63,7 @@ class VennPlot(BasePlot):
         self.df_set_labels = shape_data['set_label']
         self.df_region_labels = shape_data['region_label']
 
-    def _load_overlap_data(self, overlapdata: Union[pd.DataFrame, str]):
+    def _load_overlap_data(self, overlapdata: Union[pd.DataFrame, str, OverlapCalculator]):
         """
         Load overlap data
 
@@ -69,6 +71,7 @@ class VennPlot(BasePlot):
             overlapdata: Data source, can be:
                      - pd.DataFrame: Overlap data DataFrame (e.g., output from calc.get_plot_data())
                      - str: CSV file path
+                     - OverlapCalculator: OverlapCalculator object
         """
         if isinstance(overlapdata, pd.DataFrame):
             # Directly pass DataFrame
@@ -76,8 +79,22 @@ class VennPlot(BasePlot):
         elif isinstance(overlapdata, str):
             # Read from CSV file
             overlap_data = pd.read_csv(overlapdata)
+        elif hasattr(overlapdata, 'compute') and hasattr(overlapdata, 'sets_names'):
+            # Handle OverlapCalculator object
+            # Use get_plot_data() to get exclusive elements for correct Venn diagram plotting
+            overlap_data = overlapdata.get_plot_data()
+            # Update df_set_labels with custom set names if available
+            if hasattr(overlapdata, 'sets_names') and len(overlapdata.sets_names) > 0:
+                # Create a mapping from original set labels to custom set names
+                # Assuming the order of sets in overlapdata.sets_names matches the order in df_set_labels
+                if self.df_set_labels is not None and len(self.df_set_labels) == len(overlapdata.sets_names):
+                    # Create a copy to avoid modifying the original
+                    self.df_set_labels = self.df_set_labels.copy()
+                    
+                    # Update the 'id' column with custom set names
+                    self.df_set_labels['id'] = overlapdata.sets_names
         else:
-            raise TypeError("overlapdata must be pd.DataFrame or str (CSV path)")
+            raise TypeError("overlapdata must be pd.DataFrame, str (CSV path), or OverlapCalculator object")
 
         # Replace ' & ' in set_names with '_' to match id in geometric data
         overlap_data['set_names'] = overlap_data['set_names'].str.replace(' & ', '_')
@@ -113,7 +130,8 @@ class VennPlot(BasePlot):
                     return '_'.join(mapped_parts)
 
                 overlap_data['set_names'] = overlap_data['set_names'].apply(map_name)
-
+        
+        
         self.df_region_labels = pd.merge(
             self.df_region_labels,
             overlap_data,
@@ -265,11 +283,17 @@ class VennPlot(BasePlot):
         Set labels are positioned at specified coordinates to identify
         each individual set in the Venn diagram
         """
-        for _, row in self.df_set_labels.iterrows():
+        for i, (_, row) in enumerate(self.df_set_labels.iterrows()):
+            # Use custom label if provided and index is within bounds
+            if self.custom_set_labels and i < len(self.custom_set_labels):
+                label = self.custom_set_labels[i]
+            else:
+                label = str(row['id'])
+                
             self.ax.text(
                 row['X'],
                 row['Y'],
-                str(row['id']),
+                label,
                 fontsize=self.style.set_label_fontsize,
                 color=self.style.set_label_color,
                 fontweight=self.style.set_label_weight,
@@ -278,7 +302,7 @@ class VennPlot(BasePlot):
                 va=self.style.set_label_va
             )
 
-    def _get_n_sets_from_data(self, overlapdata: Union[pd.DataFrame, str]) -> int:
+    def _get_n_sets_from_data(self, overlapdata: Union[pd.DataFrame, str, 'OverlapCalculator']) -> int:
         """
         Calculate the number of sets from overlapdata
 
@@ -295,16 +319,15 @@ class VennPlot(BasePlot):
             overlap_data = overlapdata.copy()
         elif isinstance(overlapdata, str):
             overlap_data = pd.read_csv(overlapdata)
+        elif hasattr(overlapdata, 'sets_names'):
+            return len(overlapdata.sets_names)
         else:
             raise ValueError("Unrecognized data type, unable to calculate number of sets")
 
-        # Extract set names from set_names column
         if 'set_names' in overlap_data.columns:
-            # Get all set names (split ' & ' or '_')
             all_sets = set()
             for name in overlap_data['set_names']:
                 if pd.notna(name):
-                    # Handle 'A & B & C' or 'A_B_C' format
                     name_str = str(name).replace(' & ', '_')
                     parts = name_str.split('_')
                     all_sets.update(parts)
@@ -314,12 +337,18 @@ class VennPlot(BasePlot):
         raise ValueError("Unable to calculate number of sets from data, please check data format or specify shape_key manually")
 
     def draw(self,
-             overlapdata: Union[pd.DataFrame, str],
+             overlapdata: Union[pd.DataFrame, str, OverlapCalculator],
              shape_key: Optional[str] = None,
              title: str = "Venn Diagram",
              show_region_labels: bool = True,
              show_set_labels: bool = True,
-             label_formatter: str = 'count'):
+             label_formatter: str = 'count',
+             show_regions_border: bool = True,
+             show_set_border: bool = True,
+             custom_set_labels: Optional[List[str]] = None,
+             custom_colors: Optional[Dict[str, str]] = None,
+             palette: Optional[str] = None,
+             figsize: Optional[Tuple[float, float]] = None):
         """
         Draw Venn diagram
 
@@ -333,7 +362,14 @@ class VennPlot(BasePlot):
             show_region_labels: Whether to show region labels
             show_set_labels: Whether to show set labels
             label_formatter: Label format, options 'count'(value), 'percentage', 'all'(both)
+            custom_set_labels: Custom set labels list, defaults to None (use default labels)
+            custom_colors: Custom colors dict, e.g., {'A': '#FF0000', 'B': '#00FF00'}
+            palette: Color palette name, auto-generates colors for sets. 
+                    Options: 'viridis', 'Set1', 'Set2', 'Set3', 'tab10', 'Pastel1', 'Pastel2', etc.
+            figsize: Figure size (width, height) in inches. If None, uses style.figsize
         """
+
+        
         # If shape_key is not specified, automatically calculate number of sets and select first available shape
         if shape_key is None:
             n_sets = self._get_n_sets_from_data(overlapdata)
@@ -345,6 +381,21 @@ class VennPlot(BasePlot):
         # Load geometric data and overlap data
         self._load_geometric_data(shape_key)
         self._load_overlap_data(overlapdata)
+
+        # Set custom set labels if provided
+        self.custom_set_labels = custom_set_labels
+        
+        # Handle custom colors and palette
+        if custom_colors is not None:
+            self.custom_colors = custom_colors
+        elif palette is not None:
+            # Generate colors from palette for each set
+            unique_ids = self.df_edges['id'].unique()
+            n = len(unique_ids)
+            cmap = cm.get_cmap(palette)
+            self.custom_colors = {}
+            for i, region_id in enumerate(unique_ids):
+                self.custom_colors[region_id] = cmap(i / max(n - 1, 1))
         
         # Calculate total for percentage calculations
         total_size = self.df_region_labels['size'].sum() if 'size' in self.df_region_labels.columns else 0
@@ -362,11 +413,14 @@ class VennPlot(BasePlot):
                 self.label_formatter = lambda x: f"{int(x)}\n({x/total_size*100:.1f}%)" if total_size > 0 else f"{int(x)}\n(0%)"
 
         # Create figure and setup axes
-        self.create_figure()
+        self.create_figure(figsize)
 
         # Draw diagram layers in order: regions first, then borders
-        self._draw_regions()
-        self._draw_borders()
+        if show_regions_border:
+            self._draw_regions()
+
+        if show_set_border:
+            self._draw_borders()
 
         # Add labels if requested
         if show_region_labels:
@@ -387,6 +441,10 @@ class VennPlot(BasePlot):
              shape_key: Optional[str] = None,
              title: str = "Venn Diagram",
              label_formatter: str = 'count',
+             custom_set_labels: Optional[List[str]] = None,
+             custom_colors: Optional[Dict[str, str]] = None,
+             palette: Optional[str] = None,
+             figsize: Optional[Tuple[float, float]] = None,
              **kwargs):
         """
         Draw and display the Venn diagram
@@ -398,10 +456,15 @@ class VennPlot(BasePlot):
             shape_key: Geometric data key name, defaults to None (auto-select)
             title: Title
             label_formatter: Label format, options 'count', 'percentage', 'all'
+            custom_set_labels: Custom set labels list, defaults to None (use default labels)
+            custom_colors: Custom colors dict, e.g., {'A': '#FF0000', 'B': '#00FF00'}
+            palette: Color palette name, auto-generates colors for sets
+            figsize: Figure size (width, height) in inches. If None, uses style.figsize
             **kwargs: Additional parameters passed to draw
         """
         self.draw(overlapdata=overlapdata, shape_key=shape_key, title=title,
-                  label_formatter=label_formatter, **kwargs)
+                  label_formatter=label_formatter, custom_set_labels=custom_set_labels,
+                  custom_colors=custom_colors, palette=palette, figsize=figsize, **kwargs)
         self.show()
 
     def get_statistics(self) -> Dict:

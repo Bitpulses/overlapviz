@@ -1,0 +1,128 @@
+set_names,n_sets,size,elements
+A & B & C & D & E & F & G,7,1,['element_079']
+A & B & C & D & E & G,6,2,"['element_031', 'element_066']"
+A & B & C & E & F & G,6,2,"['element_077', 'element_091']"
+B & C & D & E & F & G,6,2,"['element_050', 'element_071']"
+A & B & C & D & E & F,6,1,['element_057']
+A & B & D & E & F & G,6,1,['element_138']
+A & C & D & E & F & G,6,1,['element_116']
+A & B & C & D & F & G,6,0,[]
+A & B & C & E & G,5,5,"['element_027', 'element_136', 'element_141', 'element_153', 'element_166']"
+A & B & D & E & G,5,3,"['element_023', 'element_043', 'element_062']"
+A & B & E & F & G,5,3,"['element_016', 'element_019', 'element_191']"
+A & B & C & D & E,5,2,"['element_032', 'element_125']"
+A & B & C & F & G,5,3,"['element_028', 'element_056', 'element_105']"
+A & B & D & E & F,5,3,"['element_087', 'element_137', 'element_162']"
+A & C & E & F & G,5,2,"['element_030', 'element_159']"
+A & D & E & F & G,5,3,"['element_175', 'element_183', 'element_190']"
+B & C & D & E & F,5,2,"['element_088', 'element_103']"
+B & C & D & E & G,5,1,['element_194']
+B & C & D & F & G,5,3,"['element_045', 'element_064', 'element_169']"
+B & C & E & F & G,5,1,['element_049']
+C & D & E & F & G,5,2,"['element_139', 'element_150']"
+A & B & C & D & G,5,2,"['element_006', 'element_083']"
+B & D & E & F & G,5,1,['element_106']
+A & B & C & D & F,5,2,"['element_025', 'element_133']"
+A & B & C & E & F,5,0,[]
+A & C & D & E & F,5,1,['element_112']
+A & C & D & E & G,5,0,[]
+A & B & D & F & G,5,1,['element_094']
+A & C & D & F & G,5,0,[]
+A & B & E & G,4,0,[]
+A & B & C & G,4,0,[]
+A & E & F & G,4,2,"['element_080', 'element_195']"
+B & C & E & G,4,1,['element_134']
+A & B & C & E,4,1,['element_192']
+A & B & D & E,4,1,['element_196']
+A & B & F & G,4,3,"['element_101', 'element_127', 'element_170']"
+A & C & E & G,4,1,['element_188']
+B & D & E & F,4,3,"['element_004', 'element_029', 'element_055']"
+B & D & E & G,4,3,"['element_095', 'element_179', 'element_181']"
+C & D & E & F,4,4,"['element_009', 'element_075', 'element_110', 'element_200']"
+D & E & F & G,4,3,"['element_084', 'element_158', 'element_184']"
+A & B & C & D,4,3,"['element_036', 'element_078', 'element_187']"
+A & B & E & F,4,2,"['element_085', 'element_114']"
+B & C & D & G,4,2,"['element_015', 'element_199']"
+B & C & F & G,4,1,['element_186']
+A & D & E & F,4,1,['element_128']
+A & D & E & G,4,1,['element_069']
+B & C & D & E,4,1,['element_072']
+B & C & D & F,4,1,['element_073']
+C & D & F & G,4,3,"['element_021', 'element_176', 'element_185']"
+A & B & C & F,4,2,"['element_119', 'element_198']"
+A & B & D & G,4,1,['element_013']
+A & C & D & E,4,3,"['element_037', 'element_097', 'element_142']"
+A & C & F & G,4,2,"['element_003', 'element_121']"
+B & E & F & G,4,0,[]
+C & E & F & G,4,0,[]
+A & B & D & F,4,1,['element_034']
+A & C & E & F,4,2,"['element_020', 'element_102']"
+C & D & E & G,4,1,['element_152']
+A & C & D & F,4,3,"['element_007', 'element_017', 'element_070']"
+B & C & E & F,4,0,[]
+B & D & F & G,4,0,[]
+A & D & F & G,4,1,['element_052']
+A & C & D & G,4,1,['element_068']
+D & E & F,3,3,"['element_002', 'element_024', 'element_124']"
+A & B & G,3,2,"['element_010', 'element_012']"
+B & E & G,3,3,"['element_089', 'element_117', 'element_146']"
+A & B & E,3,1,['element_074']
+A & D & E,3,4,"['element_076', 'element_129', 'element_140', 'element_163']"
+A & E & F,3,3,"['element_096', 'element_120', 'element_144']"
+B & C & G,3,2,"['element_111', 'element_177']"
+A & B & C,3,1,['element_115']
+A & E & G,3,0,[]
+B & C & D,3,2,"['element_107', 'element_135']"
+B & D & E,3,0,[]
+A & F & G,3,1,['element_061']
+C & D & F,3,0,[]
+D & E & G,3,1,['element_193']
+A & B & F,3,0,[]
+B & E & F,3,3,"['element_058', 'element_065', 'element_168']"
+B & F & G,3,3,"['element_001', 'element_044', 'element_122']"
+C & D & E,3,1,['element_053']
+C & F & G,3,2,"['element_113', 'element_156']"
+E & F & G,3,1,['element_131']
+A & B & D,3,0,[]
+A & C & D,3,2,"['element_042', 'element_151']"
+A & C & E,3,0,[]
+A & C & G,3,2,"['element_123', 'element_149']"
+C & E & G,3,2,"['element_060', 'element_167']"
+D & F & G,3,2,"['element_048', 'element_172']"
+A & C & F,3,1,['element_098']
+B & C & F,3,2,"['element_018', 'element_108']"
+B & D & F,3,1,['element_081']
+B & D & G,3,0,[]
+B & C & E,3,0,[]
+C & D & G,3,1,['element_104']
+C & E & F,3,1,['element_054']
+A & D & F,3,0,[]
+A & D & G,3,1,['element_171']
+D & E,2,1,['element_157']
+B & G,2,4,"['element_063', 'element_132', 'element_143', 'element_155']"
+E & F,2,1,['element_035']
+A & E,2,2,"['element_118', 'element_165']"
+D & F,2,3,"['element_022', 'element_051', 'element_093']"
+B & C,2,4,"['element_005', 'element_109', 'element_180', 'element_197']"
+C & D,2,2,"['element_038', 'element_130']"
+A & B,2,2,"['element_046', 'element_047']"
+A & G,2,4,"['element_039', 'element_126', 'element_160', 'element_173']"
+E & G,2,2,"['element_033', 'element_182']"
+F & G,2,0,[]
+A & C,2,1,['element_174']
+A & F,2,1,['element_099']
+B & E,2,0,[]
+C & F,2,2,"['element_041', 'element_059']"
+B & F,2,0,[]
+C & G,2,0,[]
+A & D,2,1,['element_067']
+B & D,2,1,['element_040']
+C & E,2,2,"['element_011', 'element_082']"
+D & G,2,0,[]
+A,1,2,"['element_086', 'element_178']"
+B,1,2,"['element_026', 'element_092']"
+C,1,3,"['element_014', 'element_161', 'element_189']"
+D,1,3,"['element_100', 'element_145', 'element_154']"
+E,1,0,[]
+F,1,1,['element_008']
+G,1,2,"['element_090', 'element_164']"
