@@ -1,5 +1,6 @@
 """
 Venn diagram plotting class
+version v 0.01
 
 """
 
