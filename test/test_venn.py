@@ -48,7 +48,7 @@ venn.draw(
     label_formatter='all',
     show_regions_border=True,
     figsize=(6, 6),
-    show_set_border=False,
+    #show_set_border=False,
     #custom_colors={'Set1': '#FF6B6B', 'Set2': '#4ECDC4', 'Set3': '#45B7D1', 'Set4': '#96CEB4'},
     palette='plasma',
     #custom_set_labels=['A','B','C','D'],
