@@ -270,7 +270,7 @@ pytest
 
 ```bash
 # Clone the repository
-git clone https://github.com/Dot4diw/overlapviz.git
+git clone https://github.com/Bitpulses/overlapviz.git
 cd overlapviz
 
 # Create virtual environment
