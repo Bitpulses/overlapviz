@@ -8,13 +8,13 @@
 
 A Python toolkit for professional set visualization, transforming complex data overlaps into intuitive Venn and UpSet plots.
 
-![](./figs/2-7_venn_diagram.svg)
+![](./figs/2-7-set_venn_diagram.png)
 
 ## 🚀 Features
 
 - **Venn Diagrams**: Create beautiful Venn diagrams for 2-7 sets with customizable styling
 - **UpSet Plots**: Visualize set relationships for 7+ sets (coming soon)
-- - **Euler Plots**: (coming soon)
+- **Euler Plots**: (coming soon)
 - **Pure matplotlib**: Built entirely with matplotlib for maximum flexibility
 - **Highly Customizable**: Extensive styling options with predefined themes
 - **Data Integration**: Easy integration with pandas DataFrames and CSV files
@@ -25,6 +25,9 @@ A Python toolkit for professional set visualization, transforming complex data o
 ### Prerequisites
 
 - Python 3.12 or higher
+- matplotlib
+- numpy
+- pandas
 - pip package manager
 
 ### Install in Development Mode (Recommended)
