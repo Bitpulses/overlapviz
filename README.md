@@ -31,6 +31,7 @@ A Python toolkit for professional set visualization, transforming complex data o
 
 ```bash
 # Clone or navigate to the project directory
+git clone https://github.com/Bitpulses/overlapviz.git
 cd overlapviz
 
 # Install in editable mode
