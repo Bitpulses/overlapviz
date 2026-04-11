@@ -14,8 +14,8 @@ A Python toolkit for professional set visualization, transforming complex data o
 
 - **Venn Diagrams**: Create beautiful Venn diagrams for 2-7 sets with customizable styling
 - **UpSet Plots**: Visualize set relationships for 7+ sets (coming soon)
+- - **Euler Plots**: (coming soon)
 - **Pure matplotlib**: Built entirely with matplotlib for maximum flexibility
-- **Automatic Selection**: Automatically choose the appropriate visualization type
 - **Highly Customizable**: Extensive styling options with predefined themes
 - **Data Integration**: Easy integration with pandas DataFrames and CSV files
 - **Professional Output**: Publication-ready figures with high-resolution support
