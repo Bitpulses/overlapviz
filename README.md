@@ -8,14 +8,7 @@
 
 A Python toolkit for professional set visualization, transforming complex data overlaps into intuitive Venn and UpSet plots.
 
-![](./figs/4set_venn.png)
-![](./figs/4set_venn2.png)
-![](./figs/4set_test_venn_output3.png)
-![](./figs/5set_test_venn_output.png)
-![](./figs/5set_venn_fill.png)
-![](./figs/5set_venn.py.png)
-![](./figs/6set_test_venn_output.png)
-![](./figs/7set_test_venn_output.png)
+![](./figs/2-7_venn_diagram.svg)
 
 ## 🚀 Features
 
